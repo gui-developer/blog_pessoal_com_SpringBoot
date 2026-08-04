@@ -1,6 +1,6 @@
 package com.generation.blogpessoal.repository; // Pacote padrão para repositórios
 
-import com.generation.blogpessoal.Model.Postagem;
+import com.generation.blogpessoal.model.Postagem;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 // 1. É UMA INTERFACE E NÃO UMA CLASSE!

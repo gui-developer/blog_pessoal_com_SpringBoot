@@ -1,4 +1,4 @@
-package com.generation.blogpessoal.Model; // Ajuste para o pacote do seu projeto
+package com.generation.blogpessoal.model; // Ajuste para o pacote do seu projeto
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
