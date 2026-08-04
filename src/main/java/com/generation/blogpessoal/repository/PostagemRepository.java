@@ -1,13 +1,18 @@
 package com.generation.blogpessoal.repository; // Pacote padrão para repositórios
 
+
 import com.generation.blogpessoal.model.Postagem;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 // 1. É UMA INTERFACE E NÃO UMA CLASSE!
 // No Spring, você não precisa escrever o código que faz o "INSERT INTO" ou "SELECT * FROM" no banco.
 // Você apenas cria uma Interface e o Spring cria toda a lógica de banco de dados automaticamente para você na memória!
 
 public interface PostagemRepository extends JpaRepository<Postagem, Long> {
+
+    public List<Postagem> findAllByTituloContainingIgnoreCase(String titulo);
 
     // 2. OS GENERICS <Postagem, Long>
     // É aqui que você explica para o "operário" (JpaRepository) com quem ele vai trabalhar:

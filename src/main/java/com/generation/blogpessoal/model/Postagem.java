@@ -1,10 +1,7 @@
 package com.generation.blogpessoal.model; // Ajuste para o pacote do seu projeto
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -51,7 +48,16 @@ public class Postagem {
     private LocalDateTime data ;
 
     // IMPORTANTE: Para manter o Encapsulamento que você aprendeu, não se esqueça de criar
-    // os métodos Getters e Setters de todos estes atributos abaixo (ou usar a biblioteca Lombok)!
+    // os métodos Getters e Setters
+
+    // Adicione isto na sua classe Postagem
+    @ManyToOne
+    @JsonIgnoreProperties("postagem")
+    private Tema tema;
+
+    @ManyToOne
+    @JsonIgnoreProperties("postagem")
+    private Usuario usuario;
 
 
     public Long getId () {
