@@ -46,7 +46,7 @@ public class TemaController {
     }
 
     //Criação de dados
-    @PostMapping("/temas")
+    @PostMapping("/criar")
     public ResponseEntity<Tema>post(@Valid @RequestBody Tema temas){
 
         temas.setId (null);
