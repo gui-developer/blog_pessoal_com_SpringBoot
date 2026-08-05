@@ -25,7 +25,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Usuario>> getAll() {
         return ResponseEntity.ok(usuarioRepository.findAll());
     }
@@ -51,7 +51,7 @@ public class UsuarioController {
                 .orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
     }
 
-    @PutMapping
+    @PutMapping("/atualizar")
     public ResponseEntity<Usuario> put(@Valid @RequestBody Usuario usuarios) {
         return usuarioRepository.findById(usuarios.getId())
                 .map(resposta -> ResponseEntity.status(HttpStatus.OK)

@@ -28,7 +28,7 @@ public class Postagem {
     // 2. VALIDAÇÕES DE SEGURANÇA (Bean Validation)
     // Elas garantem que ninguém vai enviar dados inválidos para a sua API!
 
-    // @NotBlank impede que o título seja nulo ou que o utilizador envie apenas espaços vazios ("   ")
+    // @NotBlank impede que o título seja nulo ou que o utilizador envie apenas espaços vazios ("")
     @NotBlank(message = "O atributo título é Obrigatório! ")
     // @Size define os limites mínimo e máximo de letras aceites no banco de dados para este campo.
     @Size(min = 5, max = 100, message ="O atributo título deve conter no mínimo 05 e no máximo 100 caracteres") // Corrigido de "texto" para "título"
@@ -42,13 +42,13 @@ public class Postagem {
     // 3. LOGÍSTICA E AUDITORIA
 
     // @UpdateTimestamp é uma anotação inteligente do Hibernate.
-    // Sempre que você criar uma nova postagem ou atualizar uma existente, o Spring vai olhar para o
+    // Sempre que você criar uma postagem ou atualizar uma existente, o Spring vai olhar para o
     // relógio do servidor e gravar a data/hora exata automaticamente. Você não precisa fazer "new Date()".
     @UpdateTimestamp
     private LocalDateTime data ;
 
     // IMPORTANTE: Para manter o Encapsulamento que você aprendeu, não se esqueça de criar
-    // os métodos Getters e Setters
+    // os métodos Getters e ‘Setters’
 
     // Adicione isto na sua classe Postagem
     @ManyToOne
