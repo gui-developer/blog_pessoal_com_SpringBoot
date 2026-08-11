@@ -40,8 +40,10 @@ public class UsuarioController {
     }
 
     @GetMapping("/email/{email}")
-    public ResponseEntity<Optional<Usuario>> getByTipo(@PathVariable String email) {
-        return ResponseEntity.ok(usuarioRepository.findByEmail(email));
+    public ResponseEntity<Usuario> getByEmail(@PathVariable String email) {
+        return usuarioRepository.findByEmail(email)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping("/cadastrar")
