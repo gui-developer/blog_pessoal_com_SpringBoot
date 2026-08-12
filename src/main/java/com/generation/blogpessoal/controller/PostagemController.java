@@ -39,7 +39,7 @@ public class PostagemController {
 
     // @GetMapping indica que este método será acionado ao receber uma requisição HTTP do tipo GET.
     // GET é o verbo padrão utilizado para buscar ou listar informações no servidor.
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Postagem>> getAll(){
         // ResponseEntity.ok() constrói uma resposta HTTP com o status 200 (OK), sinalizando sucesso.
         // O postagemRepository.findAll() vai até o MySQL, executa um "SELECT * FROM tb_postagens",
@@ -70,7 +70,7 @@ public class PostagemController {
     }
 
     //Atualização de dados
-    @PutMapping
+    @PutMapping("/atualizar")
     public ResponseEntity<Postagem>put(@RequestBody Postagem postagem){
         if (postagemRepository.existsById (postagem.getId ()))
             return ResponseEntity.ok (postagemRepository.save (postagem));

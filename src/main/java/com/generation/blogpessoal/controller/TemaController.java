@@ -25,7 +25,7 @@ public class TemaController {
     private PostagemRepository postagemRepository;
 
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Tema>> getAll(){
         return ResponseEntity.ok (temaRepository.findAll());
     }
@@ -40,9 +40,9 @@ public class TemaController {
     }
 
     //Consulta personalizada
-    @GetMapping("/descricao{descricao}")
-    public ResponseEntity<List<Tema>>getAllByDescricao(@PathVariable String descricao){
-        return ResponseEntity.ok (temaRepository.findAllByDescricaoContainingIgnoreCase (descricao));
+    @GetMapping("/descricao/{descricao}")
+    public ResponseEntity<List<Tema>> getAllByDescricao(@PathVariable String descricao) {
+        return ResponseEntity.ok(temaRepository.findAllByDescricaoContainingIgnoreCase(descricao));
     }
 
     //Criação de dados
@@ -56,7 +56,7 @@ public class TemaController {
     }
 
     //Atualização de dados
-    @PutMapping
+    @PutMapping("/atualizar")
     public ResponseEntity<Tema> put(@Valid @RequestBody Tema temas){
         return temaRepository.findById(temas.getId())
                 .map(resposta -> ResponseEntity.status(HttpStatus.CREATED)
